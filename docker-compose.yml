@@ -1,0 +1,24 @@
+indico:
+  restart: always
+  build: indico
+  env_file:
+    - ./indico.env
+  links:
+    - db
+    - zeo
+    - cbroker
+  ports:
+    - "127.0.0.1:8080:80"
+  volumes:
+    - /var/lib/indico/opt:/opt/indico
+db:
+  restart: always
+  build: db
+  volumes:
+    - /var/lib/indico/postgresql:/var/lib/postgresql/data
+zeo:
+  restart: always
+  build: zeo
+cbroker:
+  restart: always
+  image: redis:latest
