@@ -15,4 +15,3 @@ Not all features are tested, and the following are known to be broken:
 
 - Not all configuration options are exposed in `indico.env`
 - No support for database upgrading (I have no idea how that works)
-- texlive not available (adding this should be simple however)

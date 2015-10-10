@@ -1,5 +1,7 @@
 FROM python:2.7.10
-RUN mkdir -p /usr/src && \
+RUN apt-get update && \
+env DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install texlive-full && \
+mkdir -p /usr/src && \
 cd /usr/src && \
 curl -LJO https://github.com/XeCycle/indico/releases/download/dist-f6777a9/requirements.txt && \
 curl -LJO https://github.com/XeCycle/indico/releases/download/dist-f6777a9/indico-1.9.6-py2.7.egg && \
